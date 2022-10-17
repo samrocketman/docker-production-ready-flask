@@ -26,15 +26,14 @@ following.
 
     make serve
 
-or alternately with extra debug logging.
-
-    make debug
-
-
 Open in a web browser:
 
 * http://localhost:8080 to see the JSON API response.
 * http://localhost:8080/media/example.txt example asset
+
+Run tests with
+
+    make test
 
 # ARM image support
 
@@ -45,10 +44,13 @@ extra packages to be installed on the host.
 
     sudo apt install -y qemu-user-static binfmt-support
 
-Then, you can build the ARM version of the flask app.
+Then, you can run the ARM version of the flask app.
+
+    make serve-arm
+
+Tests can be run as well.
 
     make test-arm
-
 
 # Result
 
