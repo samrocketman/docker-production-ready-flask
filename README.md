@@ -3,32 +3,33 @@
 Create the smallest feasible Docker container for a Python flask app using a
 production-ready WSGI server.
 
-Follow docker best practices:
+Follow Docker best practices:
 
 - Smart init program to handle proces signals.
 - Web server starts in foreground with HTTP/2 support.
 - Web server logs to stdout and stderr to be handled by Docker instead of
   writing to disk.
 
-# Building Container
-
-    docker build -t flask .
-
 # Running Docker container
 
-    docker run -p localhost:8080:80 --rm flask
+The resulting Docker image is `flask`.  To build and start web service run the
+following.
+
+    make serve
 
 or alternately with extra debug logging.
 
-    docker run -e LOGLEVEL=debug -p localhost:8080:80 --rm flask
+    make debug
 
-# Visit the website
 
-Open http://localhost:8080 to see the JSON API response.
+Open in a web browser:
 
-See example asset at http://localhost:8080/media/example.txt
+* http://localhost:8080 to see the JSON API response.
+* http://localhost:8080/media/example.txt example asset
 
 # ARM image support
+
+The restulting Docker image is `flaskarm`.
 
 Building an arm image from an amd64 machines (in my case Ubuntu) requires some
 extra packages to be installed on the host.
@@ -37,7 +38,8 @@ extra packages to be installed on the host.
 
 Then, you can build the ARM version of the flask app.
 
-    docker buildx build --platform linux/arm64 --build-arg base=arm64v8/alpine -t flaskarm .
+    make test-arm
+
 
 # Result
 
