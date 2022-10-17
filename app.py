@@ -1,10 +1,1 @@
-import json
-from flask import Flask, jsonify
-app = Flask(__name__)
-@app.route('/')
-def index():
-    return jsonify({'name': 'alice',
-                    'email': 'alice@outlook.com'})
-
-# mod_wsgi suppoort
-application = app
+from rest_api import app as application
