@@ -3,12 +3,21 @@
 Create the smallest feasible Docker container for a Python flask app using a
 production-ready WSGI server.
 
-Follow Docker best practices:
+Follow Python, Flask, and Docker best practices:
 
-- Smart init program to handle proces signals.
-- Web server starts in foreground with HTTP/2 support.
-- Web server logs to stdout and stderr to be handled by Docker instead of
-  writing to disk.
+- Python
+  - Flake8 formatted code.
+  - Organize code into modules.
+  - Unit tests with pytest.
+  - Code coverage report generated from unit tests.
+- Flask
+  - Run Flask from a production WSGI server; Apache httpd
+  - Web server supports HTTP/2.
+- Docker
+  - PID 1 init program to handle process signals and child processes.
+  - Web server starts in foreground.
+  - Web server logs to stdout and stderr to be handled by Docker instead of
+    writing logs to disk.
 
 # Running Docker container
 
