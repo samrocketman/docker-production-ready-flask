@@ -1,2 +1,5 @@
 __pycache__
 *.pyc
+/results.xml
+/.coverage
+/coverage.xml
