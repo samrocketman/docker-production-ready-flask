@@ -21,5 +21,6 @@ COPY rest_api /app/rest_api/
 COPY wsgi-app.conf /etc/apache2/conf.d/99-app.conf
 ENTRYPOINT ["/usr/bin/dumb-init", "--", "/bin/sh", "-exc"]
 
+EXPOSE 80
 ENV LOGLEVEL=info
 CMD ["exec /usr/sbin/httpd -D FOREGROUND -e $LOGLEVEL"]
