@@ -41,7 +41,11 @@ Then, you can build the ARM version of the flask app.
 
 # Result
 
-Flask app running apache2 runs as a normal user (`apache`).  Final container
-size is just under 62MB.
+Flask app running apache2 runs as a normal user (`apache`) via wsgi.  Final
+container size is just under 62MB.
 
 Complete with unit testing and 100% test coverage.
+
+# License
+
+CC0 or Public Domain
