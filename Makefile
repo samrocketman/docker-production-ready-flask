@@ -1,9 +1,9 @@
-.PHONY: debug exec flask flask-test serve test
+.PHONY: debug exec flask flask-test flaskarm flaskarm-test serve test test-arm
 
 test: flask-test
 	docker run --rm -u `id -u`:`id -g` -v "$(PWD):/mnt" -w /mnt flask-test
 
-test-arm:
+test-arm: flaskarm-test
 	docker run --rm -u `id -u`:`id -g` -v "$(PWD):/mnt" -w /mnt flaskarm-test
 
 flask-test: flask
@@ -15,7 +15,7 @@ flask:
 flaskarm:
 	docker buildx build --platform linux/arm64 --build-arg base=arm64v8/alpine -t flaskarm .
 
-flaskarm-test:
+flaskarm-test: flaskarm
 	docker buildx build --platform linux/arm64 --build-arg base=flaskarm -t flaskarm-test -f test/Dockerfile .
 
 serve: flask
