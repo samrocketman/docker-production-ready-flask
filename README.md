@@ -6,7 +6,7 @@ production-ready WSGI server.
 Follow docker best practices:
 
 - Smart init program to handle proces signals.
-- Web server starts in foreground.
+- Web server starts in foreground with HTTP/2 support.
 - Web server logs to stdout and stderr to be handled by Docker instead of
   writing to disk.
 
@@ -43,3 +43,5 @@ Then, you can build the ARM version of the flask app.
 
 Flask app running apache2 runs as a normal user (`apache`).  Final container
 size is just under 62MB.
+
+Complete with unit testing and 100% test coverage.

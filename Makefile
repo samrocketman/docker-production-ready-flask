@@ -9,6 +9,9 @@ flask-test: flask
 flask:
 	docker build -t flask .
 
+flaskarm:
+	docker buildx build --platform linux/arm64 --build-arg base=arm64v8/alpine -t flaskarm .
+
 serve: flask
 	docker run --name flask -p 127.0.0.1:8080:80 --rm flask
 
